@@ -1,0 +1,16 @@
+Instructions: 
+
+	Users: Categorized into two main types: 
+		
+		1- Owner:
+			Email: test@gmail.com
+		2- Normal User:
+			Email: test5@gmail.com
+	
+	** Password for all users: anegma120
+	** Owner user: Can add/update/delete useres
+	** Normal user: Only can view all users
+	
+	** Roles and permissions are pre-inserted into the database, but the user role can be specified for each new user created.
+
+	** Database exported into public/Database directory, it's name 's3geeks-tasks-db.sql', it is ready to be imported into MYSQL DBMS.
