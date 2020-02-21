@@ -69,7 +69,18 @@
                                     @endrole
 
                                 </li>
+                                {{-- User links--}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('get-roles') }}">Roles</a>
+                                </li>
 
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('get-cats') }}">Categories</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('get-articles') }}">Articles</a>
+                                </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -92,7 +103,7 @@
                 </div>
             </div>
         </nav>
-
+        @include('layouts.messages')
         <main class="py-4">
             @yield('content')
         </main>

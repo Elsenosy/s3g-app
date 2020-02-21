@@ -7,17 +7,36 @@ use App\Permission;
 class PermissionController extends Controller
 {
     public function create(){
-        // $createPost = new Permission();
-        // $createPost->name         = 'edit-user';
-        // $createPost->display_name = 'Edit users'; // optional
-        // // Allow a user to...
-        // $createPost->description  = 'Edit system users'; // optional
-        // $createPost->save();
+        $createArticle = new Permission();
+        $createArticle->name         = 'create-article';
+        $createArticle->display_name = 'Create articles'; // optional
+        // Allow a user to...
+        $createArticle->description  = 'Create blog articles'; // optional
+        $createArticle->save();
 
-        // $role = \App\Role::where('name', 'owner')->first();
-        
-        // $permission = Permission::where('name', 'delete-user')->first();
-        // $role->attachPermission($permission);
-        // dd($permission);
+        $editArticle = new Permission();
+        $editArticle->name         = 'edit-article';
+        $editArticle->display_name = 'Edit articles'; // optional
+        // Allow a user to...
+        $editArticle->description  = 'Edit blog articles'; // optional
+        $editArticle->save();
+
+
+        $deleteArticle = new Permission();
+        $deleteArticle->name         = 'delete-article';
+        $deleteArticle->display_name = 'Delete articles'; // optional
+        // Allow a user to...
+        $deleteArticle->description  = 'Delete blog articles'; // optional
+        $deleteArticle->save();
+
+        $author = \App\Role::where('name', 'author')->first();
+        $editor = \App\Role::where('name', 'editor')->first();
+
+        // $permission = Permission::where('name', 'edit-user')->first();
+
+        $author->attachPermission([$createArticle, $editArticle, $deleteArticle]);
+
+        $editor->attachPermission([$createArticle, $editArticle]);
+        // dd($user);
     }
 }
